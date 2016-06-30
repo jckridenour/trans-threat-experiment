@@ -5,8 +5,8 @@ data<-read.csv("recoded.csv")
 
 data$god<-as.factor(data$god) #1=believe in God or higher power
 data$relimp<-6-data$relimp #1=very unimportant, 5=very important
-data$denom<-as.factor(data$denom)
-data$trad<-as.factor(data$trad)
+data$denom<-as.factor(data$denom) #see codebook
+data$trad<-as.factor(data$trad) #1=Fundamentalist/Charismatic, 2=Traditional/Conservative, 3=Mainline/Moderate, 4=Progressive/Liberal, 5=Not Religious, 6=Pentecostal/Evangelical, 7=Other Religion
 data$biblit<-recode(as.numeric(data$biblit), "1=4; 2=3; 3=2; 5=1; else=NA") #1=book of fables, 2=still has value, 3=God's word not literal, 4=God's word and literal
 data$jesus<-6-data$jesus #reverse-coding
 data$jesus[data$jesus==0]<-NA #1=I do not believe Jesus Christ is the Son of God, 2 = not certain at all, 5 = absolutely certain
