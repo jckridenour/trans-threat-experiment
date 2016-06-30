@@ -1,0 +1,45 @@
+rm(list=ls())
+setwd("C:/Users/Joshua/Dropbox/University of Arizona/Projects/Evangelical Voting Project/Experiment/Data")
+load("recoded.RData")
+constim<-subset(data, data$manip1==4)
+libstim<-subset(data, data$manip2==4)
+library(psych)
+
+########################################################################################################################################################################
+
+##### Test for Partisan Polarization Effect #####
+
+#Religious Liberals
+t.test(libstim$pid[libstim$trad==4], constim$pid[constim$trad==4])
+
+#Religious Conservatives
+
+t.test(libstim$pid[libstim$trad==1 | libstim$trad==2 | libstim$trad==6], constim$pid[constim$trad==1 | constim$trad==2 | constim$trad==6])
+
+#data:  libstim$pid[libstim$trad == 1 | libstim$trad == 2 | libstim$trad ==  and constim$pid[constim$trad == 1 | constim$trad == 2 | constim$trad ==     6] and     6]
+#t = 2.6664, df = 92.998, p-value = 0.009043
+#alternative hypothesis: true difference in means is not equal to 0
+#95 percent confidence interval:
+#  0.2243385 1.5335329
+#sample estimates:
+#  mean of x mean of y 
+#5.024390  4.145455 
+
+##### Test for Ideological Polarization Effect #####
+
+#Religious Liberals
+
+t.test(libstim$ideo[libstim$trad==4], constim$ideo[constim$trad==4])
+
+#Religious Conservatives
+
+t.test(libstim$ideo[libstim$trad==1 | libstim$trad==2 | libstim$trad==6], constim$ideo[constim$trad==1 | constim$trad==2 | constim$trad==6])
+
+#data:  libstim$ideo[libstim$trad == 1 | libstim$trad == 2 | libstim$trad ==  and constim$ideo[constim$trad == 1 | constim$trad == 2 | constim$trad ==     6] and     6]
+#t = 2.0186, df = 93.166, p-value = 0.0464
+#alternative hypothesis: true difference in means is not equal to 0
+#95 percent confidence interval:
+#  0.01097083 1.33803139
+#sample estimates:
+#  mean of x mean of y 
+#5.292683  4.618182 
